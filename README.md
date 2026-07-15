@@ -12,30 +12,15 @@ Ce projet m'a notamment permis d'approfondir les notions de systèmes **OLTP** e
 
 ## Architecture
 
-```text
-                Données de référence (CSV)
-                         │
-                         ▼
-              Google Cloud Storage (GCS)
-                         │
-                         ▼
-                     BigQuery
-                        ▲
-                        │
-               Federated Queries
-                        │
-                        ▼
-          PostgreSQL (Cloud SQL)
-      Données opérationnelles (CSV)
+## Architecture
 
-                        │
-                        ▼
-              Vues analytiques SQL
+<p align="center">
+  <img src="images/architecture.png" alt="Architecture du projet GCP Logistics Data Analytics" width="1000">
+</p>
 
-                        │
-                        ▼
-                 Looker Studio
-```
+Cette architecture sépare les données opérationnelles, stockées dans PostgreSQL sur Cloud SQL, des données de référence stockées dans Google Cloud Storage.
+
+Les données sont ensuite centralisées dans BigQuery afin de créer des vues analytiques et d’alimenter les tableaux de bord Looker Studio.
 
 ---
 
